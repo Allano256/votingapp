@@ -13,6 +13,7 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('love_sandwiches')
 
 # 1.Get sales from the user
+# 2.Validate the data provided
 #CSV COMMA SEPARATED VALUES
 #ASK USER TO SEND IN DATA
 
@@ -20,11 +21,40 @@ def get_sales_data():
     """ 
     Get sales figures input from the user
     """
+
     print("Please enter sales data from the last market.")
     print("data should be six numbers, separated by commas.")
     print("Example: 10,20,30,40,50,60\n") #Add the backslash and "n" to have space between the sections
 
-    data_str = input("Enter your data here.") #Create input area for data entry
-    print(f"The data provide is {data_str}") #Printout the data in terminal
+    data_str = input("Enter your data here.")
+     #Create input area for data entry
+     #Printout the data in terminal
+    #The data provided always comes in string format hence the variable "data_str" used
 
+    #Validate the data provided
+
+    sales_data = data_str.split(",")
+    validate_data(sales_data)
+     # Use the split method to break it up at the commas, this will remove the commas from the string
+  #values is the sales data list in the parameter
+
+def validate_data(values):
+    """
+    Inside the try, converts all string values into integers.
+    Raises valueError if strings cannot be converted into int,
+    or if there aren't exavtly 6 values
+    """
+    try:
+        if len(values) != 6:
+            raise ValueError(
+                f"Exactly 6 values required, you provided {len(values)}"
+            )
+    except ValueError as e:
+        print(f"Invalid data: {e}, please try again.\n")
+
+     
+
+   
+    
+     
 get_sales_data()
