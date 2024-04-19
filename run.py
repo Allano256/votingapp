@@ -1,6 +1,6 @@
 import gspread
 from google.oauth2.service_account import Credentials
-from pprint import pprint
+#Import here pprint but deleted before deployment
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -27,7 +27,7 @@ def get_sales_data():
         print("data should be six numbers, separated by commas.")
         print("Example: 10,20,30,40,50,60\n") #Add the backslash and "n" to have space between the sections
 
-        data_str = input("Enter your data here.")
+        data_str = input("Enter your data here.\n") #Always add the back slash and n on any input before deployment otherwise it wont show.
       #Create input area for data entry
       #Printout the data in terminal
       #The data provided always comes in string format hence the variable "data_str" used
@@ -168,4 +168,3 @@ main()
 
 
 
-# ['12','3','12','10','12','13']
