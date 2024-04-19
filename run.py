@@ -63,14 +63,14 @@ def validate_data(values):
     
     return True #If no error is found when entering data,so this will also be the condition to end our while loop.
 
-def update_sales_worksheet(data):
-    """
-    Update  sales worksheet, add new row with the list data provided
-    """ 
-    print("Updating sales worksheet...\n")  
-    sales_worksheet = SHEET.worksheet('sales') 
-    sales_worksheet.append_row(data) #append_row adds a new row at the end of the sheet.
-    print("Sales worksheet updated successfully.\n ")
+# def update_sales_worksheet(data):
+#     """
+#     Update  sales worksheet, add new row with the list data provided
+#     """ 
+#     print("Updating sales worksheet...\n")  
+#     sales_worksheet = SHEET.worksheet('sales') 
+#     sales_worksheet.append_row(data) #append_row adds a new row at the end of the sheet.
+#     print("Sales worksheet updated successfully.\n ")
 
 def calculate_surplus_data(sales_row):
     """
@@ -94,15 +94,24 @@ def calculate_surplus_data(sales_row):
 
     return surplus_data
 
-def update_surplus_worksheet(data):
-    """
-    Update  surplus worksheet, add new row with the list data provided
-    """ 
-    print("Updating surplus worksheet...\n")  
-    surplus_worksheet = SHEET.worksheet('surplus') 
-    surplus_worksheet.append_row(data) #append_row adds a new row at the end of the sheet.
-    print("Surplus worksheet updated successfully.\n ")
+# def update_surplus_worksheet(data):
+#     """
+#     Update  surplus worksheet, add new row with the list data provided
+#     """ 
+#     print("Updating surplus worksheet...\n")  
+#     surplus_worksheet = SHEET.worksheet('surplus') 
+#     surplus_worksheet.append_row(data) #append_row adds a new row at the end of the sheet.
+#     print("Surplus worksheet updated successfully.\n ")
 
+def update_worksheet(data, worksheet): #This will help to refactor the two functions of sales and surplus which are so similar in nature apart from afew key words
+    """
+    Recieves a list of integers to be inserted into a worksheet
+    Update the relevant worksheet with the data provided
+    """
+    print(f"Updating {worksheet} worksheet...\n")
+    worksheet_to_update = SHEET.worksheet(worksheet)
+    worksheet_to_update.append_row(data)
+    print(f"{worksheet} worksheet updated successfully")
 
 
 
@@ -112,10 +121,10 @@ def main():
     """
     data = get_sales_data()
     sales_data = [int(num) for num in data] #We assign the result from the list comprehension to a new variable named sales_data
-    update_sales_worksheet(sales_data)# we call the function n pass the sales_data _list
+    update_worksheet(sales_data, 'sales')# we call the function n pass the sales_data _list
     new_surplus_data = calculate_surplus_data(sales_data)
-    print(new_surplus_data)
-    update_surplus_worksheet(new_surplus_data) #This will update the surplus worksheet
+  
+    update_worksheet(new_surplus_data, 'surplus') #This will update the surplus worksheet
 
 print("Welcome to Love Sanwiches Data Automation") # So wehn you run the system,this message will be printed first before the others
 main()
