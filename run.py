@@ -113,7 +113,19 @@ def update_worksheet(data, worksheet): #This will help to refactor the two funct
     worksheet_to_update.append_row(data)
     print(f"{worksheet} worksheet updated successfully")
 
+def get_last_5_entries_sales():
+    """
+    Collects columns of data from sales worksheet, collecting the last 5 entries for each sandwich and returns the data as a list of lists
+    """
+    sales = SHEET.worksheet("sales")
+    # column = sales.col_values(3) #This allows us to get results from the 3rd column
+    # print(column)
 
+    columns = []
+    for ind in range(1, 7): #So here the 1 indicates where the range will start and the 7 where it will stop
+        column = sales.col_values(ind)
+        columns.append(column[-5:]) # use the slice method so that we only get just five values from each list and a colon coxz we slice multiple values.
+    return columns
 
 def main():
     """
@@ -127,7 +139,9 @@ def main():
     update_worksheet(new_surplus_data, 'surplus') #This will update the surplus worksheet
 
 print("Welcome to Love Sanwiches Data Automation") # So wehn you run the system,this message will be printed first before the others
-main()
+# main()
+
+sales_columns = get_last_5_entries_sales()
 
 
 
