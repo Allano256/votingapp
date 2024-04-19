@@ -127,6 +127,25 @@ def get_last_5_entries_sales():
         columns.append(column[-5:]) # use the slice method so that we only get just five values from each list and a colon coxz we slice multiple values.
     return columns
 
+def calculate_stock_data(data):
+    """
+    Calculate the average stock for each item type, ading 10%
+    """
+    print("Calculating stock data...\n")
+    new_stock_data = []
+
+    for column in data:
+        int_column = [int(num) for num in column]
+        average = sum(int_column) / len(int_column)
+        # Or average = sum(int_column)/5
+        stock_num = average *1.1 # this variable will get the average and mutltiply it by 10 which is 1.1 as requested by the user to increase by 10
+        new_stock_data.append(round(stock_num))
+
+    return new_stock_data
+
+
+
+
 def main():
     """
     Run all program functions
@@ -137,11 +156,15 @@ def main():
     new_surplus_data = calculate_surplus_data(sales_data)
   
     update_worksheet(new_surplus_data, 'surplus') #This will update the surplus worksheet
+    sales_columns = get_last_5_entries_sales()
+    stock_data = calculate_stock_data(sales_columns)
+    print(stock_data)
+    update_worksheet(stock_data, 'stock')
+
 
 print("Welcome to Love Sanwiches Data Automation") # So wehn you run the system,this message will be printed first before the others
-# main()
+main()
 
-sales_columns = get_last_5_entries_sales()
 
 
 
