@@ -94,6 +94,16 @@ def calculate_surplus_data(sales_row):
 
     return surplus_data
 
+def update_surplus_worksheet(data):
+    """
+    Update  surplus worksheet, add new row with the list data provided
+    """ 
+    print("Updating surplus worksheet...\n")  
+    surplus_worksheet = SHEET.worksheet('surplus') 
+    surplus_worksheet.append_row(data) #append_row adds a new row at the end of the sheet.
+    print("Surplus worksheet updated successfully.\n ")
+
+
 
 
 def main():
@@ -105,6 +115,7 @@ def main():
     update_sales_worksheet(sales_data)# we call the function n pass the sales_data _list
     new_surplus_data = calculate_surplus_data(sales_data)
     print(new_surplus_data)
+    update_surplus_worksheet(new_surplus_data) #This will update the surplus worksheet
 
 print("Welcome to Love Sanwiches Data Automation") # So wehn you run the system,this message will be printed first before the others
 main()
