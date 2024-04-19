@@ -61,7 +61,21 @@ def validate_data(values):
         return False #If there is an error in the data,so an error will be printed an the user asked to enter new data.
     
     return True #If no error is found when entering data,so this will also be the condition to end our while loop.
-     
+
+def update_sales_worksheet(data):
+    """
+    Update  sales worksheet, add new row with the list data provided
+    """ 
+    print("Updating sales worksheet...\n")  
+    sales_worksheet = SHEET.worksheet('sales') 
+    sales_worksheet.append_row(data) #append_row adds a new row at the end of the sheet.
+    print("Sales worksheet updated successfully.\n ")
+
+
 data = get_sales_data()
+sales_data = [int(num) for num in data] #We assign the result from the list comprehension to a new variable named sales_data
+update_sales_worksheet(sales_data)# we call the function n pass the sales_data _list
+
+
 
 # ['12','3','12','10','12','13']
