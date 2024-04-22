@@ -21,11 +21,19 @@ def voter_choice():
     """
     print("Please use either '1' symbol for candidate A or '2' for candidate B")
     print("Do not use both '1,2' to vote as this will be invalid vote")
-    print("You are only allowed to vote once...")
-    choice = int(input("Please submit your vote here: "))
-    if choice == 1:
+    print("You are only allowed to vote once...\n")
+    choice_of_user = int(input("Please submit your vote here: "))
+    if choice_of_user == 1:
         print(f"You voted for candidate A")
-    else:
+    elif choice_of_user == 2:
         print(f"You voted for candidate B ")
-
+    else:
+        print(f"{choice_of_user} entered is not a valid character...Please try again with either 1 or 2 as the options.")
+   
 voter_choice()
+
+
+
+
+    
+
