@@ -1,6 +1,6 @@
 import gspread
 from google.oauth2.service_account import Credentials
-#Import here pprint but deleted before deployment
+
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -15,7 +15,7 @@ SHEET = GSPREAD_CLIENT.open('voting_app')
 
 
 
-def voter_choice():
+def voter_choice(value):
     """
     This condition checks to see what the voter has chosen, either 1,2. Also ensure that the voter does not reload the page everytime they enter a wrong character but instead loads automatically using the while loop created.
     """
@@ -26,29 +26,40 @@ def voter_choice():
     
         choice_user = (input("Please submit your vote here: "))
         voter_choice = choice_user
-   
+        if value == "1" :
+            print(f"You voted for candidate A")
+        elif value == "2" :
+            print(f"You voted for candidate B")
+        else:
+            print(f"{value} chosen is not a valid character")
+        
+        return value
+      
        
-        if validate_user_input(voter_choice):
-            print("Congragulations,voting successful!")
-            break
-            
-    
-def validate_user_input(value):
+       
+def update_candidate_A_votes(data):
     """
-    This will ensure that a voter only uses 1 or 2 to cast their vote, and also ensure that invalid characters are not allowed as entry into the voting system.
+    This will update the votes for candidate A.
     """
-    if value == "1":
-        print(f"You voted for candidate A")
-    elif value == "2":
-        print(f"You voted for candidate B")
-    else:
-        print(f"{value} chosen is not a valid character")
-        return False
-    return True
    
-    
+    print("updating candidate A tally...\n")
+    candidate_worksheet = SHEET.worksheet('candidate')
+    candidate_worksheet.append_row(data)
+    print("Candidate A worksheet updated successfully \n")
 
-voter_choice()
+    candidate_data = candidate_worksheet.get_all_records()
+    print(candidate_data)
+    data = []
+    candidate_worksheet.append_row(data)
+
+
+data = voter_choice()
+update_candidate_A_votes(data)
+
+
+   
+
+
     
 
 
