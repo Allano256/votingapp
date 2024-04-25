@@ -20,20 +20,26 @@ def voter_choice():
     This condition checks to see what the voter has chosen, either 1,2. Also ensure that the voter does not reload the page everytime they enter a wrong character but instead loads automatically using the while loop created.
     """
    
-    print("Please use either '1' symbol for candidate A or '2' for candidate B")
-    print("Do not use both '1,2' to vote as this will be invalid vote")
+    print("Please use either A symbol for candidate A or B for candidate B")
+    print("Do not use both 'A and B' to vote as this will be invalid vote")
     print("You are only allowed to vote once...\n")
     
-    choice_user = str(input("Please submit your vote here: "))
-    global voter_choice
+    choice_user = (input("Please submit your vote here: "))
+
+    global voter_choice 
     voter_choice = choice_user
-       
-    if voter_choice == "1" :
+    
+    if voter_choice == 'A' :
         print(f"You voted for candidate A")
-    elif voter_choice == "2" :
+        update_candidate_A_votes([1,0])
+     
+    elif voter_choice == 'B' :
         print(f"You voted for candidate B")
+        update_candidate_A_votes([0,1])
+       
     else:
         print(f"{voter_choice} chosen is not a valid character")
+        
         return voter_choice
 
       
@@ -41,22 +47,23 @@ def voter_choice():
     
 def update_candidate_A_votes(voter_choice):
     """
-    This will update the votes for candidate A.
+    This will update the votes for candidate A and B in the spreadsheet.
     """
-   
+
     print("updating candidate A tally...\n")
     candidate_worksheet = SHEET.worksheet('candidate')
     candidate_worksheet.append_row(voter_choice)
     print("Candidate A worksheet updated successfully \n")
-
+    candidate_worksheet = SHEET.worksheet('candidate')
     candidate_data = candidate_worksheet.get_all_records()
+        
     print(candidate_data)
     print('The voter choice is', voter_choice)
-    candidate_worksheet.append_row(voter_choice)
+   
 
 
 data = voter_choice()
-update_candidate_A_votes(data)
+
 
 
    
