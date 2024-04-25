@@ -17,7 +17,7 @@ SHEET = GSPREAD_CLIENT.open('voting_app')
 
 def voter_choice():
     """
-    This condition checks to see what the voter has chosen, either 1,2. Also ensure that the voter does not reload the page everytime they enter a wrong character but instead loads automatically using the while loop created.
+    This condition checks to see what the voter has chosen, either A or B.
     """
    
     print("Please use either A symbol for candidate A or B for candidate B")
@@ -47,8 +47,8 @@ def voter_choice():
     
 def update_candidate_A_votes(voter_choice):
     """
-    This will update the votes for candidate A and B in the spreadsheet.
-    """
+    This will update the votes for candidate A and B in the spreadsheet and also retrieve the values from the spreadsheet
+            """
 
     print("updating candidate A tally...\n")
     candidate_worksheet = SHEET.worksheet('candidate')
