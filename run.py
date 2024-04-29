@@ -35,7 +35,7 @@ def voter_choice(candidate_data):
    
     if len(candidate_data) == 12:
         print("Voting is now closed...")
-        total_votes_cast()
+        votes_cast()
         return 
   
 
@@ -59,7 +59,7 @@ def voter_choice(candidate_data):
         update_candidate_votes([0,1],candidate_data)
        
     else:
-        print(f"{voter_choice} chosen is not a valid character")
+        print(f"{voter_choice} chosen is not a valid character, use A OR B")
         
         return voter_choice
 
@@ -82,7 +82,7 @@ def update_candidate_votes(voter_choice, candidate_data):
     time.sleep(1)
     print('The voter choice is', voter_choice)
 
-def total_votes_cast():
+def votes_cast():
     """
     This function adds up the values from each candidate and gives a total, the candidate with the most votes being the winner.
     """
@@ -112,7 +112,7 @@ def total_votes_cast():
           
 
     print(f"Candidate A has {total_votes_A} votes and Candidate B has {total_votes_B} votes")
-    
+
     if total_votes_A > total_votes_B:
         print("Candidate A won the election")
     elif total_votes_B > total_votes_A:
