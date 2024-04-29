@@ -101,7 +101,7 @@ def votes_cast():
     i = 2
     while i < len(candidate_data):
           
-          # Get the value of cells at row 1, column 1
+          # Get the value of cell at row 2, column 1
           cell1_value = worksheet.cell(i,1).value 
           total_votes_A += int(cell1_value)
 
