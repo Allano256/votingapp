@@ -30,8 +30,6 @@ def voter_choice(candidate_data):
     print("Please use either A symbol for candidate A or B for candidate B")
     print("Do not use both 'A and B' to vote as this will be invalid vote")
     print("You are only allowed to vote once...\n")
-    print(len(candidate_data))
-   
    
     if len(candidate_data) == 12:
         print("Voting is now closed...")
