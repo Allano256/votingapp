@@ -18,6 +18,8 @@ SHEET = GSPREAD_CLIENT.open('voting_app')
 TS = 60*2 + time.time() 
 
 def clear():
+
+
     """
     This clears the the screen for both windows and OS users.
     """
@@ -33,6 +35,8 @@ def clear():
     
 
 def get_voter_choice(candidate_data):
+
+
     """
     This condition checks to see what the voter has chosen, either A or B.
     This prints the total number of expected voters
@@ -81,6 +85,8 @@ def get_voter_choice(candidate_data):
         return voter_choice
     
 def comfirm_selection(choice,candidate_data):
+
+
     """
     This will request the user to comfirm their choice or make changes.
     """
@@ -98,6 +104,8 @@ def comfirm_selection(choice,candidate_data):
        
  
 def update_candidate_votes(voter_choice, candidate_data):
+
+
     """
     This will update the votes for candidate A and B in the spreadsheet and also retrieve the values from the spreadsheet
     """
@@ -112,11 +120,13 @@ def update_candidate_votes(voter_choice, candidate_data):
    
     time.sleep(2)
     clear()  
-    #print(candidate_data)
+   
     time.sleep(1)
    
 
 def votes_cast():
+
+
     """
     This function adds up the values from each candidate and gives a total, the candidate with the most votes being the winner.
     """
@@ -158,6 +168,8 @@ clear()
 
 
 def main():
+
+    
     """
     This function gets called called when the application starts running.
     """
