@@ -15,6 +15,7 @@ CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('voting_app')
+TS = 60*2 + time.time() 
 
 def clear():
     """
@@ -31,20 +32,23 @@ def clear():
 
     
 
-def voter_choice(candidate_data):
+def get_voter_choice(candidate_data):
     """
     This condition checks to see what the voter has chosen, either A or B.
     This prints the total number of expected voters
     """
    
+    if time.time() >= TS:
+      
+        print("Voting is now closed...")
+        votes_cast()
+        return 
+    
     print("Please use either A symbol for candidate A or B for candidate B")
     print("Do not use both 'A and B' to vote as this will be invalid vote")
     print("You are only allowed to vote once...\n")
    
-    if len(candidate_data) == 12:
-        print("Voting is now closed...")
-        votes_cast()
-        return 
+  
   
 
     choice_user = input("Please submit your vote here: ").upper()
@@ -56,22 +60,43 @@ def voter_choice(candidate_data):
     
     if voter_choice == 'A' :
         print(f"You voted for candidate A")
+       
         input("press enter to continue")
         clear()
-        update_candidate_votes([1,0],candidate_data)
+        comfirm_selection([1,0],candidate_data)
+       
      
     elif voter_choice == 'B' :
         print(f"You voted for candidate B")
+       
         input("press enter to continue")
         clear()
-        update_candidate_votes([0,1],candidate_data)
+        comfirm_selection([0,1],candidate_data)
+        
        
     else:
         print(f"{voter_choice} chosen is not a valid character, use A OR B")
+        get_voter_choice(candidate_data)
         
         return voter_choice
+    
+def comfirm_selection(choice,candidate_data):
+    """
+    This will request the user to comfirm their choice or make changes.
+    """
+    print("Would you like to comfirm?")
+    comfirmation = input()
 
+    if comfirmation == "yes":
+        update_candidate_votes(choice, candidate_data)
+
+    else:
+       
         
+        get_voter_choice(candidate_data)
+        
+       
+ 
 def update_candidate_votes(voter_choice, candidate_data):
     """
     This will update the votes for candidate A and B in the spreadsheet and also retrieve the values from the spreadsheet
@@ -83,6 +108,7 @@ def update_candidate_votes(voter_choice, candidate_data):
     candidate_worksheet.append_row(voter_choice)
     clear()
     print("Candidate A worksheet updated successfully \n")
+    get_voter_choice(candidate_data)
    
     time.sleep(2)
     clear()  
@@ -137,7 +163,7 @@ def main():
     """
     candidate_worksheet = SHEET.worksheet('candidate')
     candidate_data = candidate_worksheet.get_all_records()
-    voter_choice(candidate_data)
+    get_voter_choice(candidate_data)
      
 print("Welcome to the  voting app")
 main()
