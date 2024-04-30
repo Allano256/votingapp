@@ -139,7 +139,7 @@ def main():
     candidate_data = candidate_worksheet.get_all_records()
     voter_choice(candidate_data)
      
-print("Welcome to the Uganja voting app")
+print("Welcome to the voting app")
 main()
 
 
