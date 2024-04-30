@@ -86,7 +86,7 @@ def update_candidate_votes(voter_choice, candidate_data):
    
     time.sleep(2)
     clear()  
-    print(candidate_data)
+    #print(candidate_data)
     time.sleep(1)
    
 
@@ -100,7 +100,7 @@ def votes_cast():
     #Get the data from the worksheet
     candidate_worksheet = SHEET.worksheet('candidate')
     candidate_data = candidate_worksheet.get_all_records()
-    print(len(candidate_data))
+  
 
     #variables for each candidate
     total_votes_A = 0
@@ -139,7 +139,7 @@ def main():
     candidate_data = candidate_worksheet.get_all_records()
     voter_choice(candidate_data)
      
-print("Welcome to the voting app")
+print("Welcome to the  voting app")
 main()
 
 
