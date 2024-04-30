@@ -1,5 +1,6 @@
-import os
 import time
+import subprocess
+import platform
 import gspread
 from google.oauth2.service_account import Credentials
 
@@ -17,9 +18,18 @@ SHEET = GSPREAD_CLIENT.open('voting_app')
 
 def clear():
     """
-    This clears the print messsages when the program starts running.
+    This clears the the screen for both windows and OS users.
     """
-    os.system("cls")
+    if platform.system() =="Windows":
+        if platform.release() in {"10", "11"}:
+            subprocess.run("", shell=True)
+            print("\033c", end="")
+        else:
+            subprocess.run(["cls"])
+    else:
+        print("\033c", end="")
+
+    
 
 def voter_choice(candidate_data):
     """
@@ -78,7 +88,7 @@ def update_candidate_votes(voter_choice, candidate_data):
     clear()  
     print(candidate_data)
     time.sleep(1)
-    print('The voter choice is', voter_choice)
+   
 
 def votes_cast():
     """
