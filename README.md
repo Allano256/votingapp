@@ -69,9 +69,9 @@ Choose automatic deployment or manual to see the building process.
 
 The live link can be found here;
 
-![votingapp](https://allano256.github.io/votingapp/)
+[votingapp](https://allano256.github.io/votingapp/)
 
-![votingapp](https://voting-app-d1f18afa1974.herokuapp.com/)
+[votingapp](https://voting-app-d1f18afa1974.herokuapp.com/)
 
 # ISSUES FACED
 
@@ -81,7 +81,7 @@ Alot of white lines and indentation while running the application through the PE
 
  # CREDITS
 
- Part of the starter code was from  ![Code institute](https://github.com/Code-Institute-Solutions/love-sandwiches-p5-sourcecode)
+ Part of the starter code was from  [Code institute](https://github.com/Code-Institute-Solutions/love-sandwiches-p5-sourcecode)
 
 
 
