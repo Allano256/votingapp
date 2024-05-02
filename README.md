@@ -16,7 +16,11 @@ This application is completely digital so it avoids voter result manipulation, c
 
 ![votingapp](assets/images/heroku_start.png)
 
-The voter gets a welcome message to the site and is asked given instructions on how to complete the voting process, having two options A for candidate A and B for candidate B. When the voter makes a choice, they are given an option to either comfirm their choice or make changes to their choice.
+
+The voter gets a welcome message to the site and is asked given instructions on how to complete the voting process, having two options A for candidate A and B for candidate B.
+
+When the voter makes a choice, they are given an option to either comfirm their choice or make changes to their choice.
+
 
 # MAKING CHANGES 
 
@@ -34,23 +38,26 @@ Incase the voter enters wrong characters, they are given feedback to use the cor
 
 ![votingapp](assets/images/heroku_winner_eclaration.png)
 
+
 After the two minutes time frame the application will automatically stop and a message displayed indicating who the winner is and final results of the election printed aswell.
 
 # DESIGN
 
 ![votingapp](assets/images/heroku_wireframe.png)
 
+
 The application is based on this design about how the voting process will be and what to expect at each stage.
 
 # TECHNOLOGIES USED
 
-The project has been deployed on heroku
-Git and github was used to document the building process indicating the commits, push and changes to the project.
+The project has been deployed on heroku.
+Git and github was used to document the building process indicating. the commits, push and changes to the project.
 VS code IDE was used throughout the whole process.
 
 # VALIDATION
 
 ![votingapp](assets/images/python_validation.png)
+
 
 The application made it through the PEP8 validation process with no errors.
 
@@ -58,16 +65,17 @@ The application made it through the PEP8 validation process with no errors.
 
 The code was deployed on github and Heroku.
 
-Create an account at Heroku.com.
-Click on "Create new app"- Voting app
-Click on Settings and add backpacks,Python and Node.js.
-Back packs with Python first and Node.js after
-Connect  GitHub profile and right Repository.
-Choose automatic deployment or manual to see the building process.
+1. Create an account at Heroku.com.
+2. Click on "Create new app"- Voting app
+3. Click on Settings and add backpacks,Python and Node.js.
+4. Back packs with Python first and Node.js after
+5. Connect  GitHub profile and right Repository.
+6. Choose automatic deployment or manual to see the building process.
 
 # LIVE LINK
 
 The live link can be found here;
+
 
 [GITHUB](https://allano256.github.io/votingapp/)
 
@@ -77,9 +85,8 @@ The live link can be found here;
 
 Alot of white lines and indentation while running the application through the PEP8 validation. Using ctrl A i was able to ientify the white lines and delete them. The indentation was reverted manually.
 
-
-
  # CREDITS
+ 
 
  Part of the starter code was from  [Code institute](https://github.com/Code-Institute-Solutions/love-sandwiches-p5-sourcecode)
 
