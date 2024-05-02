@@ -39,6 +39,51 @@ After the two minutes time frame the application will automatically stop and a m
 
 The application is based on this design about how the voting process will be and what to expect at each stage.
 
+# TECHNOLOGIES USED
+
+The project has been deployed on heroku
+Git and github was used to document the building process indicating the commits, push and changes to the project.
+VS code IDE was used throughout the whole process.
+
+# VALIDATION
+
+![votingapp](assets/images/python_validation.png)
+
+The application made it through the PEP8 validation process with no errors.
+
+# DEPLOYMENT
+
+The code was deployed on github and Heroku.
+
+Create an account at Heroku.com.
+Click on "Create new app"- Voting app
+Click on Settings and add backpacks,Python and Node.js.
+Back packs with Python first and Node.js after
+Connect  GitHub profile and right Repository.
+Choose automatic deployment or manual to see the building process.
+
+# LIVE LINK
+
+The live link can be found here;
+
+![votingapp](https://allano256.github.io/votingapp/)
+
+![votingapp](https://voting-app-d1f18afa1974.herokuapp.com/)
+
+# ISSUES FACED
+
+Alot of white lines and indentation while running the application through the PEP8 validation. Using ctrl A i was able to ientify the white lines and delete them. The indentation was reverted manually.
+
+
+
+ # CREDITS
+
+ Part of the starter code was from  ![Code institute](https://github.com/Code-Institute-Solutions/love-sandwiches-p5-sourcecode)
+
+
+
+
+
 
 
 
