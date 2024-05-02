@@ -83,10 +83,12 @@ The live link can be found here;
 
 # ISSUES FACED
 
-Alot of white lines and indentation while running the application through the PEP8 validation. Using ctrl A i was able to ientify the white lines and delete them. The indentation was reverted manually.
+Alot of white lines and indentation while running the application through the PEP8 validation. Using ctrl A i was able to identify the white lines and delete them.
+
+The indentation was reverted manually.
 
  # CREDITS
- 
+
 
  Part of the starter code was from  [Code institute](https://github.com/Code-Institute-Solutions/love-sandwiches-p5-sourcecode)
 
