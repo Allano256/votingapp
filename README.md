@@ -69,9 +69,9 @@ Choose automatic deployment or manual to see the building process.
 
 The live link can be found here;
 
-[votingapp](https://allano256.github.io/votingapp/)
+[GITHUB](https://allano256.github.io/votingapp/)
 
-[votingapp](https://voting-app-d1f18afa1974.herokuapp.com/)
+[HEROKU](https://voting-app-d1f18afa1974.herokuapp.com/)
 
 # ISSUES FACED
 
