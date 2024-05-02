@@ -9,7 +9,7 @@ The app is intended to solve voting in remote countries that continously use man
 This application is completely digital so it avoids voter result manipulation, creates transparency in the voting process and also saves time on logistics.
 
 
-# HOW APPLICATION WORKS
+# HOW THE APPLICATION WORKS
 
 ![votingapp](assets/images/heroku_start.png)
 
